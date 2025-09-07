@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Keerthi Mogili — Portfolio</title>
+  <meta name="description" content="Professional portfolio showcasing projects, resume, skills and contact info." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02); --radius:12px; --container:1100px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071021 0%, #081426 60%);color:#e6eef6}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:52px;height:52px;background:linear-gradient(135deg,#2dd4bf,#60a5fa);display:grid;place-items:center;border-radius:12px;color:#04293a;font-weight:700}
+    nav a{margin-left:18px;color:var(--muted);font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:var(--radius);box-shadow:0 6px 24px rgba(2,6,23,0.6);backdrop-filter:blur(6px)}
+    .greeting{font-size:14px;color:var(--accent);font-weight:700}
+    h1{font-size:34px;margin:10px 0 6px}
+    p.lead{color:var(--muted);line-height:1.5;margin:0}
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,#06b6d4,#10b981);color:#04293a}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+    .profile{background:var(--card);border-radius:16px;padding:22px;text-align:center}
+    .avatar{width:120px;height:120px;border-radius:16px;display:inline-block;background:linear-gradient(180deg,#60a5fa,#7c3aed)}
+    .name{margin-top:14px;font-size:20px;font-weight:700}
+    .role{color:var(--muted);font-weight:600}
+    .contact-links{display:flex;gap:10px;justify-content:center;margin-top:14px}
+    .chip{padding:8px 12px;border-radius:999px;background:var(--glass);font-weight:600;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+    section{margin-top:28px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--glass-2);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .project h3{margin:6px 0 8px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted)}
+
+    .skills{display:flex;flex-direction:column;gap:12px}
+    .skill{display:flex;justify-content:space-between;align-items:center}
+    .bar{height:10px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden;margin-top:8px}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa)}
+
+    .resume{display:flex;gap:12px;align-items:center}
+
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);margin-top:36px}
+
+    /* contact form */
+    form.contact{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form.contact input, form.contact textarea{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+    form.contact textarea{grid-column:1/ -1;min-height:120px}
+    .full{grid-column:1/ -1}
+
+    /* responsive */
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr;}
+      .grid-3{grid-template-columns:1fr}
+      form.contact{grid-template-columns:1fr}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">KM</div>
+        <div>
+          <div style="font-weight:700">Keerthi Mogili</div>
+          <div style="font-size:12px;color:var(--muted)">Student • Developer • Problem Solver</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <div class="greeting">Hi, I am a Software Developer focused on building web solutions</div>
+          <h1>Keerthi Mogili — Software Developer</h1>
+          <p class="lead">I am a student & developer focused on building accessible, performant web apps and tools. I enjoy learning new technologies and translating ideas into code. Below are selected projects, my skills, and how to contact me.</p>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          </div>
+
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <div class="chip">Open to internships</div>
+            <div class="chip">Available: Sep — Dec 2025</div>
+            <div class="chip">Location: India</div>
+          </div>
+        </div>
+
+        <aside class="profile">
+          <div class="avatar"></div>
+          <div class="name">Keerthi Mogili</div>
+          <div class="role">Computer Science • Web Developer</div>
+          <div class="contact-links">
+            <a class="chip" href="mailto:you@example.com">keerthimogili706@gmail.com</a>
+            <a class="chip" href="C:\Users\keert\OneDrive\Documents\resume codevita.pdf">Resume</a>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:8px;justify-content:center">
+            <a class="btn btn-ghost" href="#projects">Projects</a>
+            <a class="btn btn-ghost" href="#contact">Contact</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <div class="card">
+          <h2>About me</h2>
+          <p style="color:var(--muted)">I’m a student studying Computer Science. My interests include web development, algorithms, and building tooling that helps teams move faster. I like clean UIs, solid tests, and readable code.</p>
+
+          <div style="display:flex;gap:12px;margin-top:16px">
+            <div style="flex:1">
+              <strong>Education</strong>
+              <div style="color:var(--muted);margin-top:6px">B.Sc./B.Tech in Computer Science — University Name</div>
+            </div>
+            <div style="flex:1">
+              <strong>Experience</strong>
+              <div style="color:var(--muted);margin-top:6px">R&D Intern — Ayoni (Summer 2024)</div>
+            </div>
+            <div style="flex:1">
+              <strong>Interests</strong>
+              <div style="color:var(--muted);margin-top:6px">Web, Backend, Open-source, Algorithms</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2 style="margin-bottom:12px">Selected Projects</h2>
+        <div class="projects-grid">
+          <article class="project">
+            <h3>Project One — Bookstore Search Optimizer</h3>
+            <div class="tags" style="margin-bottom:8px"><span class="tag">Java</span><span class="tag">Dynamic Programming</span><span class="tag">Algorithm</span></div>
+            <p style="color:var(--muted)">Implemented Optimal Binary Search Tree using dynamic programming to reduce average lookup time in a simulated bookstore search engine.</p>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn btn-ghost" href="#">View Code</a>
+              <a class="btn btn-ghost" href="#">Live Demo</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <h3>Personal Blog Website</h3>
+            <div class="tags" style="margin-bottom:8px"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Accessibility</span></div>
+            <p style="color:var(--muted)">A responsive, accessible static blog built from scratch. Includes SEO meta, keyboard navigation, and good contrast.</p>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn btn-ghost" href="#">Source</a>
+              <a class="btn btn-ghost" href="#">Preview</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <h3>WhatsApp Sync Fix Guide</h3>
+            <div class="tags" style="margin-bottom:8px"><span class="tag">Troubleshooting</span><span class="tag">Documentation</span></div>
+            <p style="color:var(--muted)">Guides and scripts to help sync WhatsApp Web with mobile devices and debug missing chats case studies.</p>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn btn-ghost" href="#">Read Guide</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="grid-3" style="margin-top:12px">
+          <div class="card">
+            <h3>Technical</h3>
+            <div class="skills">
+              <div>
+                <div class="skill"><div>Java</div><div>85%</div></div>
+                <div class="bar"><i style="width:85%"></i></div>
+              </div>
+              <div>
+                <div class="skill"><div>JavaScript / HTML / CSS</div><div>80%</div></div>
+                <div class="bar"><i style="width:80%"></i></div>
+              </div>
+              <div>
+                <div class="skill"><div>Data Structures & Algorithms</div><div>78%</div></div>
+                <div class="bar"><i style="width:78%"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Tools</h3>
+            <p style="color:var(--muted)">Git, VS Code, Node.js </p>
+          </div>
+
+          <div class="card">
+            <h3>Soft Skills</h3>
+            <p style="color:var(--muted)">Communication, Teamwork, Time Management, Problem Solving</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="resume" style="margin-top:18px">
+        <div class="card resume">
+          <div style="flex:1">
+            <h3>Resume</h3>
+            <p style="color:var(--muted)">Download a concise, print-friendly version of my resume.</p>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <a class="btn btn-primary" href="#" download="Keerthi-Mogili-Resume.pdf">Download PDF</a>
+            <a class="btn btn-ghost" href="#">View Full Resume</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px">
+          <div class="card">
+            <form class="contact" onsubmit="handleContact(event)">
+              <input name="name" placeholder="Your name" required />
+              <input name="email" placeholder="Email" type="email" required />
+              <input name="subject" class="full" placeholder="Subject" />
+              <textarea name="message" placeholder="Message" required></textarea>
+              <button type="submit" class="btn btn-primary full">Send Message</button>
+            </form>
+          </div>
+
+          <aside class="card">
+            <h3>Get in touch</h3>
+            <p style="color:var(--muted)">Prefer email? <a href="mailto:you@example.com">you@example.com</a></p>
+            <p style="color:var(--muted)">Phone: +91 00000000000</p>
+            <div style="margin-top:14px">
+              <strong>Social</strong>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <a class="chip" href="#">GitHub</a>
+                <a class="chip" href="#">LinkedIn</a>
+                <a class="chip" href="#">Twitter</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>&copy; <span id="year"></span> Keerthi Mogili — Built with ❤️</div>
+        <div style="color:var(--muted)">Made accessible, responsive, and easy to customize.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleContact(e){
+      e.preventDefault();
+      const f = e.target;
+      const data = { name:f.name.value, email:f.email.value, subject:f.subject.value, message:f.message.value };
+      // Replace with your real submission endpoint or use Formspree / Netlify Forms
+      alert('Thanks, ' + data.name + '! This demo does not actually send email. Replace the handler with your preferred backend endpoint or mailto link.');
+      f.reset();
+    }
+
+    // lightweight keyboard nav: focus visible outlines for accessibility
+    (function(){
+      function handleFirstTab(e){
+        if(e.key === 'Tab') document.documentElement.classList.add('user-is-tabbing');
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
